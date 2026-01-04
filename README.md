@@ -24,7 +24,7 @@ This repository contains the **frontend** of QikMeds. The project also includes 
 * React.js
 * Vite
 * JavaScript (ES6+)
-* CSS / Tailwind CSS (if used)
+* Tailwind CSS
 * Axios
 
 **Backend (separate repo):**
