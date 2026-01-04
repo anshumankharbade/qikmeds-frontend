@@ -1,18 +1,126 @@
-# React + Vite
+# QikMeds 💊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **full‑stack MERN web application** designed to simplify medicine browsing and ordering with a clean UI and a scalable backend architecture.
 
-Currently, two official plugins are available:
+This repository contains the **frontend** of QikMeds. The project also includes a separate backend built with Node.js, Express, and MongoDB.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* User‑friendly and responsive UI
+* Browse medicines with dynamic data rendering
+* Authentication‑ready frontend structure
+* API integration with backend services
+* Clean component‑based architecture
+* Optimized for desktop and mobile devices
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend:**
+
+* React.js
+* Vite
+* JavaScript (ES6+)
+* CSS / Tailwind CSS (if used)
+* Axios
+
+**Backend (separate repo):**
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* REST APIs
+* JWT Authentication
+
+---
+
+## 📁 Project Structure
+
+```
+qikmeds-frontend/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/anshumankharbade/qikmeds-frontend.git
+```
+
+2. Navigate to the project directory
+
+```bash
+cd qikmeds-frontend
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+The app will run on: `http://localhost:5173`
+
+---
+
+## 🔗 Backend Repository
+
+The backend for this project is available here:
+👉 [https://github.com/anshumankharbade/qikmeds-backend](https://github.com/anshumankharbade/qikmeds-backend)
+
+Make sure the backend server is running before using the full application.
+
+---
+
+## 📚 What I Learned
+
+* Building full‑stack MERN applications
+* Integrating frontend with RESTful APIs
+* Managing state and async data fetching
+* Structuring scalable React projects
+* Working with real‑world CRUD operations
+
+---
+
+## 👨‍💻 Author
+
+**Himanshu**
+BCA Graduate | MERN Stack Developer
+GitHub: [https://github.com/anshumankharbade](https://github.com/anshumankharbade)
+
+---
+
+## 📌 Future Improvements
+
+* Payment gateway integration
+* Admin dashboard
+* Order tracking
+* Notifications system
+
+---
+
+⭐ If you like this project, consider giving it a star!
