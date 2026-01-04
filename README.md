@@ -108,7 +108,7 @@ Make sure the backend server is running before using the full application.
 
 ## 👨‍💻 Author
 
-**Himanshu**
+**Anshuman Kharbade**
 BCA Graduate | MERN Stack Developer
 GitHub: [https://github.com/anshumankharbade](https://github.com/anshumankharbade)
 
