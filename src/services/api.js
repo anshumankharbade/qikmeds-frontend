@@ -35,22 +35,19 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { response, config } = error;
-
-    if (!response && !config) {
-      return Promise.reject({
-        message: "Network error or request cancelled",
-        status: 0,
-      });
-    }
+    const { response } = error;
 
     let errorMessage = "Something went wrong";
 
     if (error.code === "ECONNABORTED") {
       errorMessage = "Request timeout. Please try again.";
-    } else if (error.message === "Network Error") {
+    } else if (!response) {
+      // No response was received at all: network failure, CORS block,
+      // timeout, or the backend being unreachable/down. `response` is
+      // undefined in all of these cases, so nothing below may read
+      // response.status/response.data without checking first.
       errorMessage = "Network error. Please check your connection.";
-    } else if (response) {
+    } else {
       switch (response.status) {
         case 400:
           errorMessage = response.data?.message || "Bad request";
@@ -74,22 +71,22 @@ api.interceptors.response.use(
         default:
           errorMessage = response.data?.message || `Error: ${response.status}`;
       }
+
+      if (response.status === 400 && response.data?.stockIssues) {
+        // Custom handling for stock errors
+        const stockErrors = response.data.stockIssues
+          .filter((item) => item.insufficient)
+          .map((item) => `${item.name}: Only ${item.available} available`)
+          .join(", ");
+
+        errorMessage = `Stock issues: ${stockErrors}`;
+      }
     }
 
     // Only show toast for non-cancelled requests
     if (!axios.isCancel(error)) {
       toast.error(errorMessage, {
       });
-    }
-
-    if (response.status === 400 && response.data.stockIssues) {
-      // Custom handling for stock errors
-      const stockErrors = response.data.stockIssues
-        .filter((item) => item.insufficient)
-        .map((item) => `${item.name}: Only ${item.available} available`)
-        .join(", ");
-
-      errorMessage = `Stock issues: ${stockErrors}`;
     }
 
     return Promise.reject({
