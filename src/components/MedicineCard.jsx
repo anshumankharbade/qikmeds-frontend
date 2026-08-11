@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
+import MedicineAIExplain from "./MedicineAIExplain";
 
 const MedicineCard = ({ medicine }) => {
   const { cart, addToCart } = useCart();
@@ -10,6 +11,7 @@ const MedicineCard = ({ medicine }) => {
   const navigate = useNavigate();
   const [isAdding, setIsAdding] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  const [showAIExplain, setShowAIExplain] = useState(false);
 
   // Check if this medicine is already in cart
   useEffect(() => {
@@ -244,6 +246,14 @@ const MedicineCard = ({ medicine }) => {
           </div>
         )}
 
+        {/* AI explain button */}
+        <button
+          onClick={() => setShowAIExplain(true)}
+          className="w-full mb-2 text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 hover:bg-blue-50 rounded-lg py-2 transition-colors flex items-center justify-center gap-1.5"
+        >
+          <span aria-hidden="true">✨</span> What is this medicine?
+        </button>
+
         {/* Add to cart or go to cart button */}
         <button
           onClick={handleButtonClick}
@@ -317,6 +327,14 @@ const MedicineCard = ({ medicine }) => {
           )}
         </button>
       </div>
+
+      {showAIExplain && (
+        <MedicineAIExplain
+          medicineId={medicineId}
+          medicineName={name}
+          onClose={() => setShowAIExplain(false)}
+        />
+      )}
     </div>
   );
 };
